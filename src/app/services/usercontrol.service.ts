@@ -47,5 +47,24 @@ export class UsercontrolService {
     }
   }  
 
+  //registro
+  registuser(user:usuario){
+    var norepename = this.users.filter(function(el) { return el.username === user.username})
+    var norepeemail = this.users.filter(function(el) { return el.email === user.email})
+    
+    if(norepename.length !== 0 || norepeemail.length !== 0){
+        //se repite nombre o email
+        return{data: {}, rsp: false}
+    }else{
+      //no se repite nombre ni mail
+      this.users.push(user);
+      console.table(this.users)
+      this.savenav(user);
+      return {data: user, rsp:true};
+
+    }
+
+  }
+
   
 }
