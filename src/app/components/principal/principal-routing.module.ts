@@ -5,6 +5,7 @@ import { PageOneComponent } from '../page-one/page-one.component';
 import { PageTwoComponent } from '../page-two/page-two.component';
 import { PrincipalComponent } from './principal.component';
 
+
 const routes: Routes = [
   { path: '', component: PrincipalComponent,
   children: [
