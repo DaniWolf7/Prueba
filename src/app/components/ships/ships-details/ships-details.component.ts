@@ -1,6 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
 declare var $: any;
 
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { pagereducer } from 'src/app/rdx/reducer/ships.reducer';
+import { appstate } from 'src/app/rdx/ships.state';
+
 
 @Component({
   selector: 'ships-details',
@@ -18,7 +23,15 @@ export class ShipsDetailsComponent implements OnInit {
   modelDetails: string = '';
   starship_class: string = '';
 
-  constructor() { 
+
+  //rdx
+  currentpage: Observable<any>
+
+  constructor(private store:Store<any>) { 
+    this.currentpage = this.store.select('pagereducter')
+    
+    
+    
   }
   
   ngOnInit(): void {
@@ -45,5 +58,7 @@ export class ShipsDetailsComponent implements OnInit {
     this.modelDetails = details.model;
     this.starship_class = details.starship_class
   }
+
+
 
 }

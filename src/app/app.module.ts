@@ -12,6 +12,9 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { PrincipalComponent } from './components/principal/principal.component';
 
+//redux
+import { StoreModule } from '@ngrx/store';
+import { pagereducer } from './rdx/reducer/ships.reducer';
 
 
 @NgModule({
@@ -28,6 +31,12 @@ import { PrincipalComponent } from './components/principal/principal.component';
     FormsModule,
     ReactiveFormsModule,
     PrincipalModule,
+
+    StoreModule.forRoot({
+      pagereducter: pagereducer
+    }),
+
+    StoreModule.forRoot({}, {})
     
 
   ],
